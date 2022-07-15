@@ -50,7 +50,7 @@ class ProductController extends Controller
                 'route' => 'admin.product.index'),
         ];
         $statuses = ProductStatus::all();
-        $categories = Category::all();
+        $categories = Category::where('status', $statuses->where('nickname','=', 'active')->first()['id'])->get();
         $title = "Admin - Create New Product";
         return view('admin.create-product', compact('categories', 'statuses', 'title', 'pageTitle', 'breadCrumb'));
     }

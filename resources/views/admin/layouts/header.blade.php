@@ -8,7 +8,7 @@
             <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
                 <!-- Logo icon --><b>
                     <!-- Light Logo icon -->
-                    <img src="{{ asset('images/LogoGrabIT.png') }}" alt="homepage"
+                    <img src="{{ asset('./images/24Ocean.png') }}" alt="homepage"
                          class="light-logo logo-icon"/>
                 </b>
                 <!--End Logo icon -->
@@ -60,7 +60,7 @@
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ route('admin.setting') }}"><i class="ti-settings"></i> Setting</a></li>
+                            <li><a href="{{ route('admin.setting') }}"><i class="mdi mdi-account-settings-variant"></i> Setting</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href=""
                                    onclick="event.preventDefault(); document.getElementById('logoutForm').submit();"><i

@@ -20,11 +20,6 @@ return new class extends Migration
             $table->text('description');
             $table->timestamps();
         });
-        DB::table('order_statuses')->insert(['name'=> 'Pending', 'nickname' => 'pending', 'description' => 'Waiting For Payment']);
-        DB::table('order_statuses')->insert(['name'=> 'Possessing', 'nickname' => 'possessing', 'description' => 'Order is Preparing for Delivery']);
-        DB::table('order_statuses')->insert(['name'=> 'On The Way', 'nickname' => 'on-the-way', 'description' => 'Delivery is on The way to Shipping Address']);
-        DB::table('order_statuses')->insert(['name'=> 'Delivered', 'nickname' => 'delivered', 'description' => 'Order Delivered to Customer']);
-        DB::table('order_statuses')->insert(['name'=> 'Canceled', 'nickname' => 'canceled', 'description' => 'Order Canceled!']);
     }
 
     /**

@@ -18,10 +18,10 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:user');
-    }
+        public function __construct()
+        {
+            $this->middleware('auth:user');
+        }
 
     public function dashboard()
     {
@@ -69,6 +69,20 @@ class UserController extends Controller
         return view('user.orders', compact('title', 'orders'));
     }
 
+    public function order($id)
+    {
+        $order = Order::where('oId', $id)->get()->first();
+        $title = $order->oId;
+        return view('user.order-summery', compact('title', 'order'));
+    }
+    public function orderCancel($id)
+    {
+        $order = Order::where('id', $id)->get()->first();
+        $order->status_id = OrderStatus::where('nickname', 'canceled')->first()['id'];
+        $order->save();
+        return redirect()->back()->with('alert-danger', "Order Canceled Successfully!");
+    }
+
 
     public function createOrders(CreateOrderRequest $request)
     {
@@ -80,8 +94,9 @@ class UserController extends Controller
         $order->oId = $oId;
         $order->user_id = $user_id;
         $order->status_id = $status;
-        $order->discounted_price = 0;
-        $order->price_amount = $price;
+        $order->sipping_price =  Cart::getCondition('shipping charge')->getValue();
+        $order->price_amount = Cart::getSubTotal();
+        $order->total_amount = $price;
         $order->expected_delivery = Carbon::today()->addDays(7)->format('Y-m-d h:m:s');
         $order->save();
         $order_id = $order->id;
@@ -112,8 +127,5 @@ class UserController extends Controller
         return redirect()->route('payment', $order_id);
     }
 
-    public function makePayment($order_id = null)
-    {
-        return view('payment');
-    }
+
 }

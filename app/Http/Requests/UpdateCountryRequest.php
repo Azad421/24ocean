@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCountryRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateCountryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,8 @@ class UpdateCountryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required',Rule::unique('countries', 'name')->ignore($this->country->id),],
         ];
     }
+
 }

@@ -1,9 +1,7 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -23,6 +21,8 @@ return new class extends Migration {
             $table->string('district', 255)->nullable();
             $table->string('village', 255)->nullable();
             $table->string('contact_no', 255)->nullable();
+            $table->string('address_line_one', 255)->nullable();
+            $table->string('address_line_two', 255)->nullable();
             $table->string('email')->unique();
             $table->string('verification_code')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -31,7 +31,6 @@ return new class extends Migration {
             $table->rememberToken();
             $table->timestamps();
         });
-        User::create(['name' => 'User', 'profile_pic' => 'profile.png', 'gender' => 'Male', 'email' => 'user@gmail.com', 'is_verified' => 1, 'password' => Hash::make('password')]);
     }
 
     /**

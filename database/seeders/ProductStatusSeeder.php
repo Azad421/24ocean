@@ -17,7 +17,7 @@ class ProductStatusSeeder extends Seeder
     {
         $status = [
             ['name'=> 'Active', 'nickname' => 'active', 'description' => 'Product is Active'],
-            ['name'=> 'Inactive', 'nickname' => 'inactive', 'description' => 'Product is inactive']
+            ['name'=> 'Inactive', 'nickname' => 'inactive', 'description' => 'Product is Inactive']
         ];
         ProductStatus::insert($status);
     }

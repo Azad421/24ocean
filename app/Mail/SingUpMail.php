@@ -11,7 +11,7 @@ class SingUpMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $email_data;
+    public $data;
     /**
      * Create a new message instance.
      *
@@ -19,7 +19,7 @@ class SingUpMail extends Mailable
      */
     public function __construct($data)
     {
-        $this->email_data = $data;
+        $this->data = $data;
     }
 
     /**
@@ -29,6 +29,7 @@ class SingUpMail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_USERNAME'), env('APP_NAME'))->subject('Welcome to '. env('APP_NAME'))->view('mail.sign-up-email', ['email_data' => $this->email_data]);
+        $email_data = $this->data;
+        return $this->from(env('MAIL_USERNAME'), env('APP_NAME'))->subject('Welcome to '. env('APP_NAME'))->view('mail.sign-up-email', ['email_data' => $email_data]);
     }
 }

@@ -26,7 +26,8 @@ class User extends Authenticatable
         'country',
         'district',
         'village',
-        'contact_no'
+        'contact_no',
+        'is_verified'
     ];
 
     /**

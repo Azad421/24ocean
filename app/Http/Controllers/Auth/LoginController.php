@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -38,7 +39,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:user')->except('logout');
     }
 
     /**
@@ -49,6 +50,10 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('loginform');
+    }
+
+    public function redirectPath(){
+        return RouteServiceProvider::UserDashboard;
     }
 
     public function login(Request $request)
@@ -84,6 +89,11 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('user');
     }
 
 

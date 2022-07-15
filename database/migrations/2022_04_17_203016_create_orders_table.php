@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('oId', 100)->unique();
             $table->bigInteger('user_id')->unsigned();
             $table->integer('status_id')->unsigned();
-            $table->decimal('discounted_price', '9','2');
+            $table->decimal('shipping_price', '9','2');
             $table->decimal('price_amount', '9','2');
+            $table->decimal('total_amount', '9','2');
+            $table->dateTime('expected_delivery');
             $table->timestamps();
 
 

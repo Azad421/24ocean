@@ -89,7 +89,7 @@
                 want to give back to nature what
                 we take from them and mark our words for that, because we do what we say !
             </p>
-            <a href="./about.html" class="btn">learn more</a>
+            <a href="about.blade.php" class="btn">learn more</a>
         </div>
 
     </div>

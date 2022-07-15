@@ -20,8 +20,6 @@ return new class extends Migration
             $table->text('description');
             $table->timestamps();
         });
-        DB::table('category_statuses')->insert(['name'=> 'Active', 'nickname' => 'active', 'description' => 'Category is Active']);
-        DB::table('category_statuses')->insert(['name'=> 'Inactive', 'nickname' => 'inactive', 'description' => 'Category is Active']);
     }
 
     /**

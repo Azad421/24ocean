@@ -11,8 +11,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
@@ -24,7 +22,14 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
           integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
     <link rel="icon" href="{{ asset('./images/24Ocean.png') }}">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css"
+          integrity="sha512-9my9Mb2+0YO+I4PUCSwUYO7sEK21Y0STBAiFEYoWtd2VzLEZZ4QARDrZ30hdM1GlioHJ8o8cWQiy8IAb1hy/Hg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+
     @yield('style')
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 </head>
@@ -35,20 +40,33 @@
     </a>
     <nav class="navbar" id="mainNav">
         <a href="{{ route('home') }}">home</a>
-        <a href="#about">about us</a>
+        <a href="{{ route('about.us') }}">about us</a>
         <a href="#menu">Favourites</a>
         <a href="{{ route('products') }}">Shop All</a>
         <a href="#newarrivals">new arrivals</a>
         <a href="#review">review</a>
         <a href="#contact">contact us</a>
         <a href="{{ route('blogs') }}">blogs</a>
+        @guest('user')
+            <a href="{{ route('login') }}">Login/Registration</a>
+        @endguest
+        @auth('user')
+            <a href="{{ route('dashboard') }}">Dashboard</a>
+            <a href="{{ route('logout') }}"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        @endauth
     </nav>
 
     <div class="icons">
 
 
         <div class="fas fa-search" id="search-btn"></div>
-        <div class="fas fa-shopping-cart" id="cart-btn">{{ count(Cart::getContent()) }}</div>
+        <a href="{{ route('cart') }}">
+            <div class="fas fa-shopping-cart" id="cart-btn" value="{{ count(Cart::getContent()) }}"></div>
+        </a>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
@@ -66,26 +84,27 @@
 <!-- home section starts  -->
 @yield('content')
 <!-- footer section starts  -->
-<section class="footer" style=" background: url({{ asset('/images/footer-bg.jpg') }})  center no-repeat ;background-size: cover;">
+<section class="footer"
+         style=" background: url({{ asset('/images/footer-bg.jpg') }})  center no-repeat ;background-size: cover;">
 
     <div class="box-container">
 
         <div class="box">
             <h3>quick links</h3>
-            <a href="./index.html"> <i class="fas fa-angle-right"></i> home</a>
-            <a href="./about.html"> <i class="fas fa-angle-right"></i> about</a>
-            <a href="./skintype.html"> <i class="fas fa-angle-right"></i> SHOP</a>
-            <a href="./blogs.html"> <i class="fas fa-angle-right"></i> Blogs</a>
+            <a href="{{ route('home') }}"> <i class="fas fa-angle-right"></i> home</a>
+            <a href="{{ route('about.us') }}"> <i class="fas fa-angle-right"></i> about</a>
+            <a href="{{ route('products') }}"> <i class="fas fa-angle-right"></i> SHOP</a>
+            <a href="{{ route('blogs') }}"> <i class="fas fa-angle-right"></i> Blogs</a>
         </div>
 
         <div class="box">
             <h3>extra links</h3>
-            <a href="./REFUND.HTML"> <i class="fas fa-angle-right"></i> Refund Policy</a>
-            <a href="./return.policy"> <i class="fas fa-angle-right"></i> Return Policy</a>
-            <a href="./PRIVACY.HTML"> <i class="fas fa-angle-right"></i> Privacy Policy</a>
-            <a href="./T&C.HTML"> <i class="fas fa-angle-right"></i> Terms And Condition</a>
-            <a href="./SHIPPING.HTML"> <i class="fas fa-angle-right"></i> Shipping Policy</a>
-            <a href="./disclaimer.html"> <i class="fas fa-angle-right"></i> Disclaimer</a>
+            <a href="{{ route('refund.policy') }}"> <i class="fas fa-angle-right"></i> Refund Policy</a>
+            <a href="{{ route('return.policy') }}"> <i class="fas fa-angle-right"></i> Return Policy</a>
+            <a href="{{ route('privacy.policy') }}"> <i class="fas fa-angle-right"></i> Privacy Policy</a>
+            <a href="{{ route('terms.and.conditions') }}"> <i class="fas fa-angle-right"></i> Terms And Condition</a>
+            <a href="{{ route('shipping.policy') }}"> <i class="fas fa-angle-right"></i> Shipping Policy</a>
+            <a href="{{ route('disclaimer') }}"> <i class="fas fa-angle-right"></i> Disclaimer</a>
         </div>
 
         <div class="box">

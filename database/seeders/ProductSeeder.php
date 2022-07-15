@@ -29,6 +29,7 @@ class ProductSeeder extends Seeder
                 'price' => $product['price'],
                 'category' => Category::where('name',$product['category'])->first()['id'],
                 'status' => ProductStatus::where('nickname', $product['status'])->first()['id'],
+                'stock' =>  $product['stock'],
                 'favorites' =>  $product['favorites'],
                 'arrival' => $product['arrival'],
             ]);

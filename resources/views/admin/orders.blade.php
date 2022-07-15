@@ -50,9 +50,13 @@
                                                role="button" aria-haspopup="true" aria-expanded="true">Action</a>
                                             <div class="dropdown-menu dropdown-menu-left animated flipInX">
                                                 <a class="dropdown-item" href="{{ route('admin.order.show', $order->id) }}"><i class="fa-solid fa-circle-info text-primary"></i> Details</a>
-                                                <a class="dropdown-item" href="{{ route('admin.order.show', $order->id) }}"><i class="fa-solid fa-ban text-danger"></i> Cancel</a>
-                                                <a class="dropdown-item" href="{{ route('admin.order.show', $order->id) }}"><i class="fa-solid fa-truck text-success"></i> On The Way</a>
-                                                <a class="dropdown-item" href="{{ route('admin.order.show', $order->id) }}"><i class="fa-solid fa-box-open text-primary"></i> Delivered</a>
+                                                @if($order->status->nickname !== 'canceled' && $order->status->nickname === 'pending' && $order->status->nickname !== 'on-the-way')
+                                                <a class="dropdown-item" href="{{ route('admin.order.status', [$order->id, 'canceled']) }}"><i class="fa-solid fa-ban text-danger"></i> Cancel</a>
+                                                @endif
+                                                @if($order->status->nickname !== 'canceled' && $order->status->nickname !== 'pending' && $order->status->nickname !== 'delivered')
+                                                <a class="dropdown-item" href="{{ route('admin.order.status', [$order->id, 'on-the-way']) }}"><i class="fa-solid fa-truck text-success"></i> On The Way</a>
+                                                <a class="dropdown-item" href="{{ route('admin.order.status', [$order->id, 'delivered']) }}"><i class="fa-solid fa-box-open text-primary"></i> Delivered</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </td>

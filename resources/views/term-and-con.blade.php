@@ -39,7 +39,7 @@
          <a href="./PRIVACY.HTML"> <i class="fas fa-angle-right"></i> Privacy Policy</a>
          <a href="./T&C.HTML"> <i class="fas fa-angle-right"></i> Terms And Condition</a>
          <a href="shipping.blade.php"> <i class="fas fa-angle-right"></i> Shipping Policy</a>
-         <a href="./disclaimer.html"> <i class="fas fa-angle-right"></i> Disclaimer</a>
+         <a href="disclaimer.blade.php"> <i class="fas fa-angle-right"></i> Disclaimer</a>
       </div>
 
       <div class="box">

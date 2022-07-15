@@ -41,6 +41,13 @@
                         <li><a href="{{ route('admin.product.index') }}">Product</a></li>
                     </ul>
                 </li>
+                <li><a class="has-arrow waves-effect waves-dark" href="javascript:" aria-expanded="false"><i
+                            class="ti ti-settings"></i><span class="hide-menu">Setting</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{ route('admin.country.index') }}">Country</a></li>
+                        <li><a href="{{ route('admin.state.index') }}">State</a></li>
+                    </ul>
+                </li>
                 <li><a class="waves-effect waves-dark" href="{{ url('/admin/order') }}" aria-expanded="false"><i
                             class="mdi mdi-gauge"></i><span class="hide-menu">Orders</span></a></li>
                 <li><a class="waves-effect waves-dark" href="{{ route('admin.users') }}" aria-expanded="false"><i

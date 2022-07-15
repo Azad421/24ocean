@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png') }}" sizes="16x16" href="{{ asset('assets/assets/admin/images/favicon.png') }}">
+    <link rel="icon" type="image/png') }}" sizes="16x16" href="{{ asset('./images/24Ocean.png') }}">
     <title>{{ $title }}</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('assets/admin/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">

@@ -1,7 +1,9 @@
-@foreach(['danger', 'warning', 'success', 'info'] as $msg)
-    @if(session('alert-'.$msg))
-        <div class="alert alert-{{ $msg }} alert-dismissible fade show">{{ session('alert-'.$msg) }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
-        </div>
-    @endif
-@endforeach
+<div>
+    @foreach(['danger', 'warning', 'success', 'info'] as $msg)
+        @if(session('alert-'.$msg))
+            <div
+                class="text-{{ $msg }} alert-dismissible fade show text-center py-5">{{ session('alert-'.$msg) }}
+           </div>
+        @endif
+    @endforeach
+</div>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+    'razor_pay_key_id' => env('RAZOR_PAY_KEY'),
+    'razor_pay_key_secret' => env('RAZOR_PAY_SECRET'),
     /*
     |--------------------------------------------------------------------------
     | Application Name

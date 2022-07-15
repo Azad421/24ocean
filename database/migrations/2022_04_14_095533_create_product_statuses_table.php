@@ -20,8 +20,6 @@ return new class extends Migration
             $table->text('description');
             $table->timestamps();
         });
-        DB::table('product_statuses')->insert(['name'=> 'Active', 'nickname' => 'active', 'description' => 'Product is Active']);
-        DB::table('product_statuses')->insert(['name'=> 'Inactive', 'nickname' => 'inactive', 'description' => 'Product is inactive']);
     }
 
     /**

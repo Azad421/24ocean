@@ -38,14 +38,14 @@
                     @endif
                     @foreach(['danger', 'warning', 'success', 'info'] as $msg)
                         @if(session('alert-'.$msg))
-                            <div class="alert alert-{{ $msg }} alert-dismissible fade show">{{ session('alert-'.$msg) }} <a
+                            <div class="text-{{ $msg }} alert-dismissible fade show">{{ session('alert-'.$msg) }} <a
                                     href="#" class="btn-close" data-bs-dismiss="alert" aria-label="close"></a></div>
                         @endif
                     @endforeach
                 </div>
                 @csrf
                 <div class="field">
-                    <input type="text" placeholder="Email Address" name="email">
+                    <input type="email" placeholder="Email Address" name="email">
                 </div>
                 <div class="field">
                     <input type="password" placeholder="Password" name="password">
@@ -79,7 +79,7 @@
                     @endforeach
                 </div>
                 <div class="field">
-                    <input type="text" placeholder="Email Address" name="email">
+                    <input type="email" placeholder="Email Address" name="email">
                 </div>
                 <div class="field">
                     <input type="password" placeholder="Password" name="password">

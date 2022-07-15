@@ -80,8 +80,11 @@
                                 <!--remove item move to list-->
                             </div>
                             @endforeach
-
-
+                            @if(Cart::getContent()->count() > 0)
+                                <div class="col-12 d-flex justify-content-end remove_wish">
+                                    <p><a class="p-3 d-inline-block" href="{{ route('remove.cart', '') }}"><i class="fas fa-trash-alt"></i>REMOVE ALL ITEMS</a></p>
+                                </div>
+                            @endif
                         </div>
                         </hr>
                         <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
@@ -92,9 +95,13 @@
                                     <p><span id="product-total_amt">{{ price(Cart::getSubTotal()) }}</span></p>
                                 </div>
                                 <div class="price_indiv d-flex justify-content-between">
+                                    <p>Discount</p>
+                                    <p><span id="shipping_charge">{{ price('00.00') }}</span></p>
+                                </div>
+                                <div class="price_indiv d-flex justify-content-between">
                                     <p>Shipping Charges</p>
-                                    <p><span id="shipping_charge">@if(\Cart::isEmpty()){{ price('00.00') }}
-                                            @else{{ price('50.50') }}@endif</span></p>
+                                    <p><span id="shipping_charge">@if(!\Cart::getCondition('shipping charge')){{ price('00.00') }}
+                                            @else{{ price(\Cart::getCondition('shipping charge')->getValue()) }}@endif</span></p>
                                 </div>
                                 <hr/>
                                 <div class="total-amt d-flex justify-content-between font-weight-bold">
@@ -106,11 +113,10 @@
                                         onclick="window.location.href='/checkout'">Checkout
                                 </button>
                             </div>
-
                             <div class="mt-3 shadow p-3 bg-white expected-delivery">
                                 <div class="pt-4">
                                     <h5 class="mb-4">Expected delivery date</h5>
-                                    <p> July 27th 2020 - july 29th 2022</p>
+                                    <p> {{ \Illuminate\Support\Carbon::today()->format('M d Y') }} - {{ \Illuminate\Support\Carbon::today()->addDays(7)->format('M d Y') }}</p>
                                 </div>
                             </div>
                         </div>

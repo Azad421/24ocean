@@ -22,6 +22,7 @@ return new class extends Migration
             $table->decimal('price', '9', '2');
             $table->integer('category')->unsigned();
             $table->integer('status')->unsigned();
+            $table->integer('stock');
             $table->integer('favorites');
             $table->integer('arrival');
             $table->timestamps();

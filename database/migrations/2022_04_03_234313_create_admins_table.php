@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('password', 100);
             $table->timestamps();
         });
-        Admin::create(['user_name' => 'Admin', 'email' => 'admin@gmail.com', 'profile'=> 'profile.png', 'is_verified'=> 1, 'password' => Hash::make('admin')]);
     }
 
     /**

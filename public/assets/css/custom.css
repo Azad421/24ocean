@@ -4,3 +4,31 @@
 .alert-success{
     color: green;
 }
+.mtop{
+    margin-top: 150px;
+}
+.btn-primary{
+    font-size: 16px;
+}
+.expected-delivery h5{
+    font-size: 18px;
+}
+.expected-delivery p{
+    font-size: 15px;
+}
+.navbar a{
+    text-decoration: none;
+}
+.header .icons #cart-btn:after {
+    content: attr(value);
+    font-size: 20px;
+    color: #fff;
+    background: rgb(49, 66, 71);
+    border-radius: 50%;
+    padding: 0 5px;
+    position: relative;
+    left: -8px;
+    top: -10px;
+    opacity: 0.9;
+    font-weight: 300;
+}

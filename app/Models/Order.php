@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class   Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['oId', 'user_id','status_id', 'discounted_price', 'price_amount'];
+    protected $fillable = ['oId', 'user_id','status_id', 'discounted_price', 'price_amount', 'expected_delivery'];
 
     public function status(){
         return $this->hasOne(OrderStatus::class, 'id', 'status_id');
@@ -21,5 +21,8 @@ class Order extends Model
 
     public function details(){
         return $this->hasMany(OrderDetails::class, 'order_id', 'id');
+    }
+    public function address(){
+        return $this->hasMany(Address::class, 'order_id', 'id');
     }
 }

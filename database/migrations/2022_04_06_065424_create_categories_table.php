@@ -24,8 +24,6 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('status')->references('id')->on('category_statuses')->onDelete('cascade');
         });
-        DB::table('categories')->insert(['name'=> 'Soaps', 'slug' => Str::slug('Soaps'), 'description' => 'Category For All Soaps', 'image'=>'soap2.jpg', 'status'=> 1]);
-        DB::table('categories')->insert(['name'=> 'Bath and body', 'slug' => Str::slug('Bath and body'), 'description' => 'Category For All Bath and body', 'image'=>'soap4.jpg', 'status'=> 1]);
     }
 
     /**

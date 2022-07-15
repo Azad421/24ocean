@@ -1,4 +1,4 @@
-@extends('layouts.main');
+@extends('layouts.main')
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/css/blogs.css') }}">
 @endsection

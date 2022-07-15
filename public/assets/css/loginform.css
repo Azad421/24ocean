@@ -14,7 +14,7 @@
 
 body{
 
-    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(../images/blogimage1.jpg);
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(../../images/blogimage1.jpg);
     height:  100vh;
     background-size: cover;
     background-position: center;
@@ -294,3 +294,15 @@ form .btn input[type="submit"]{
   display: none;
 }*/
 
+.text-danger{
+    color: red;
+}
+.text-success{
+    color: green;
+}
+.text-warning{
+    color: yellow;
+}
+.text-warning{
+    color: yellow;
+}

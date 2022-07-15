@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('payment_id');
+            $table->string('payment_id')->nullable();
             $table->integer('order_id')->unsigned();
             $table->decimal('amount', '9', '2');
-            $table->string('status', '100');
+            $table->string('status', '100')->nullable();
             $table->timestamps();
+
+            $table->foreign('order_id')->on('orders')->references('id')->onDelete('cascade');
         });
     }
 

@@ -17,7 +17,7 @@ class CategoryStatusSeeder extends Seeder
     {
         $status = [
             ['name'=> 'Active', 'nickname' => 'active', 'description' => 'Category is Active'],
-            ['name'=> 'Inactive', 'nickname' => 'inactive', 'description' => 'Category is Active']
+            ['name'=> 'Inactive', 'nickname' => 'inactive', 'description' => 'Category is Inactive']
         ];
         CategoryStatus::insert($status);
     }
