@@ -73,18 +73,18 @@
       <div class="box">
          <h3>quick links</h3>
          <a href="./index.html"> <i class="fas fa-angle-right"></i> home</a>
-         <a href="./about.html"> <i class="fas fa-angle-right"></i> about</a>
+         <a href="about.blade.php"> <i class="fas fa-angle-right"></i> about</a>
          <a href="skintype.blade.php"> <i class="fas fa-angle-right"></i> SHOP</a>
          <a href="blogs.blade.php"> <i class="fas fa-angle-right"></i> Blogs</a>
       </div>
 
       <div class="box">
          <h3>extra links</h3>
-         <a href="./REFUND.HTML"> <i class="fas fa-angle-right"></i> Refund Policy</a>
+         <a href="refund.blade.php"> <i class="fas fa-angle-right"></i> Refund Policy</a>
          <a href="./return.policy"> <i class="fas fa-angle-right"></i> Return Policy</a>
          <a href="./PRIVACY.HTML"> <i class="fas fa-angle-right"></i> Privacy Policy</a>
          <a href="./T&C.HTML"> <i class="fas fa-angle-right"></i> Terms And Condition</a>
-         <a href="./SHIPPING.HTML"> <i class="fas fa-angle-right"></i> Shipping Policy</a>
+         <a href="shipping.blade.php"> <i class="fas fa-angle-right"></i> Shipping Policy</a>
          <a href="./disclaimer.html"> <i class="fas fa-angle-right"></i> Disclaimer</a>
       </div>
 

@@ -1,47 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24 ocean t&c</title>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="./policies.css">
-
-</head>
-<body>
-    
-<!-- header section starts  -->
-
-<header class="header" id = "headerID">
-
-    <a href="#" class="logo">
-        <img src="./images/24Ocean.png" alt="">
-    </a>
-
-    <nav class="navbar">
-        <a href="#./index.html">Home</a>
-        <a href="#shopall">Shop All</a>
-        <a href="#blogs">Blogs</a>
-    </nav>
-
-    <div class="icons">
-        <div class="fas fa-search" id="search-btn"></div>
-        <div class="fas fa-shopping-cart" id="cart-btn"></div>
-        <div class="fas fa-bars" id="menu-btn"></div>
-    </div>
-
-    <div class="search-form">
-        <input type="search" id="search-box" placeholder="search here...">
-        <label for="search-box" class="fas fa-search"></label>
-    </div>
-
-</header>
-
+@extends('layouts.main')
+@section('style')
+    <link rel="stylesheet" href="{{ asset('assets/css/policies.css') }}">
+@endsection
+@section('content')
 <section class="about" id="about">
 
     <h1 class="heading"> <span>TERMS AND </span>CONDITION</h1>
@@ -73,11 +34,11 @@
 
       <div class="box">
          <h3>extra links</h3>
-         <a href="./REFUND.HTML"> <i class="fas fa-angle-right"></i> Refund Policy</a>
+         <a href="refund.blade.php"> <i class="fas fa-angle-right"></i> Refund Policy</a>
          <a href="./return.policy"> <i class="fas fa-angle-right"></i> Return Policy</a>
          <a href="./PRIVACY.HTML"> <i class="fas fa-angle-right"></i> Privacy Policy</a>
          <a href="./T&C.HTML"> <i class="fas fa-angle-right"></i> Terms And Condition</a>
-         <a href="./SHIPPING.HTML"> <i class="fas fa-angle-right"></i> Shipping Policy</a>
+         <a href="shipping.blade.php"> <i class="fas fa-angle-right"></i> Shipping Policy</a>
          <a href="./disclaimer.html"> <i class="fas fa-angle-right"></i> Disclaimer</a>
       </div>
 
@@ -102,11 +63,8 @@
 
 </section>
 
-
-<!-- footer section ends --> 
-
-<script src = "./policy.js" async defer></script>
-
-</body>
-</html>
+@endsection
+@section('script')
+    <script src="{{ asset('assets/js/policy.js'}}" async defer></script>
+@endsection
 
